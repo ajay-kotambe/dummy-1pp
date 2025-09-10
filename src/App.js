@@ -4,9 +4,9 @@ import "./App.css";
 function App() {
   const [text, setText] = useState("");
   // ? first variation of useEffect -> every render
-  useEffect(() => {
-    console.log("Console Rendering done..!");
-  });
+  // useEffect(() => {
+  //   console.log("Console Rendering done..!");
+  // });
 
   //? second variation -> first render
   // useEffect(() => {
@@ -19,12 +19,12 @@ function App() {
   // }, [text]);
 
   //? fourth  variation -> to handle unmounting of component...
-  // useEffect(() => {
-  //   console.log("listener added.."); //! this runs second...
-  //   return () => {
-  //     console.log("listener removed...."); //! this runs first
-  //   };
-  // }, [text]);
+  useEffect(() => {
+    console.log("listener added.."); //! this runs second...
+    return () => {
+      console.log("listener removed...."); //! this runs first
+    };
+  }, [text]);
 
   const changeHandler = (event) => {
     // event.preventDefault();
